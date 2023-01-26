@@ -1,0 +1,11 @@
+*.js
+!.eslintrc.js
+!.env.*sample
+*.d.ts
+node_modules
+temp*
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+functions/code/core/.env
+.npmrc
