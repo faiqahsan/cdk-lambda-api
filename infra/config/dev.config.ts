@@ -4,7 +4,7 @@ export const devConfig: EnvironmentConfig = {
   name: Environment.DEV,
   apiSubDomainPrefix: "api-dev",
   webappSubDomainPrefix: "dev",
-  rootDomain: "test.com",
+  rootDomain: "test-dev.com",
   branch: "dev",
   vpnCertificateArn: "",
   isProduction: false,
