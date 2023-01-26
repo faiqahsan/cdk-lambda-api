@@ -13,7 +13,9 @@ export class LambdaConstruct extends Construct {
   constructor(scope: Construct, id: string, context: CDKContext) {
     super(scope, id);
     const envVariables = {
-      SENDGRID_API_KEY: process.env.SENDGRID_API_KEY ?? "",
+      EMAIL_SERVICE: process.env.EMAIL_SERVICE ?? "",
+      EMAIL_USERNAME: process.env.EMAIL_USERNAME ?? "",
+      EMAIL_PASSWORD: process.env.EMAIL_PASSWORD ?? "",
     };
     for (const definition of LambdaDefinitions) {
       const functionProps = getLambdaProps(definition, context, {

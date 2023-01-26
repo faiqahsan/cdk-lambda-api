@@ -5,6 +5,9 @@ read cdkCommand
 
 set -x
 
-export SENDGRID_API_KEY=test123
 
-cdk $cdkCommand --profile dev-sandbox --require-approval never
+export EMAIL_USERNAME=muhammadusama387@gmail.com
+export EMAIL_PASSWORD=ymuiururmygsqtej
+export EMAIL_SERVICE=gmail
+
+cdk $cdkCommand --profile mine --require-approval never
