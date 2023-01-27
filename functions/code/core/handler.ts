@@ -15,7 +15,7 @@ export const handler: Handler = async (event: APIGatewayEvent) => {
   console.log(`----> Started Execution: event: ${JSON.stringify(event)}`);
 
   const eventBody: { [key: string]: any } = JSON.parse(event.body as string);
-  sendEmail(eventBody.templateId, eventBody.templateData);
+  return await sendEmail(eventBody.templateId, eventBody.templateData);
 };
 
 /*

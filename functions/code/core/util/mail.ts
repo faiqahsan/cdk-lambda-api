@@ -1,34 +1,24 @@
 import { SendMailOptions } from "nodemailer";
 import { renderFile } from "ejs";
 import { transporter } from "./transporter";
+import { formatResponse } from ".";
 
-export const sendEmail = (
+export const sendEmail = async (
   templateId: string,
   templateData: Record<any, any>
 ) => {
   console.log("sending email ========>");
-  renderFile(
+  const htmlData = await renderFile(
     __dirname + `/templates/${templateId}/${templateId}.ejs`,
-    templateData,
-    function (err, data) {
-      if (err) {
-        console.log(err);
-      } else {
-        const mainOptions: SendMailOptions = {
-          from: "muhammadusama387@gmail.com",
-          to: "usama.shahid@devigital.com",
-          subject: "Testing lambda",
-          html: data,
-        };
-        console.log("html data ======================>", mainOptions.html);
-        transporter.sendMail(mainOptions, function (err, info) {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("Message sent: " + info);
-          }
-        });
-      }
-    }
+    templateData
   );
+  const mainOptions: SendMailOptions = {
+    from: "muhammadusama387@gmail.com",
+    to: "usama.shahid@devigital.com",
+    subject: "Testing lambda",
+    html: htmlData,
+  };
+  await transporter.sendMail(mainOptions);
+  console.log("Email sent");
+  return formatResponse(200, "Email sent successfully");
 };
