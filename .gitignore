@@ -9,3 +9,4 @@ temp*
 cdk.out
 functions/code/core/.env
 .npmrc
+!functions/code/core/templates
