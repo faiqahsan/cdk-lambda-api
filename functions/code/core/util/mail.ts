@@ -9,13 +9,13 @@ export const sendEmail = async (
 ) => {
   console.log("sending email ========>");
   const htmlData = await renderFile(
-    __dirname + `/templates/${templateId}/${templateId}.ejs`,
+    __dirname + `/../templates/${templateId}/${templateId}.ejs`,
     templateData
   );
   const mainOptions: SendMailOptions = {
-    from: "muhammadusama387@gmail.com",
-    to: "usama.shahid@devigital.com",
-    subject: "Testing lambda",
+    from: templateData.sender,
+    to: templateData.recipient,
+    subject: templateData.subject,
     html: htmlData,
   };
   await transporter.sendMail(mainOptions);
