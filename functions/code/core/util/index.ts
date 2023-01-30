@@ -1,16 +1,10 @@
-import sgMail, { MailDataRequired } from "@sendgrid/mail";
-import { apiConfig } from "./config";
-
-sgMail.setApiKey(apiConfig.SENDGRID_API_KEY as string);
-
-export const sendEmail = async (
-  emailPayload: MailDataRequired
-): Promise<number> => {
-  try {
-    const response = await sgMail.send(emailPayload);
-    return response[0].statusCode;
-  } catch (error) {
-    console.log("Unable to send email, Error:", error);
-    throw error;
-  }
+export const formatResponse = (code: number, body: any) => {
+  return {
+    statusCode: code,
+    body: JSON.stringify(body),
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    },
+  };
 };

@@ -1,5 +1,11 @@
-const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY as string;
+const EMAIL_SERVICE = process.env.EMAIL_SERVICE as string;
+const EMAIL_USERNAME = process.env.EMAIL_USERNAME as string;
+const EMAIL_SERVICE_SECRET = process.env.EMAIL_SERVICE_SECRET as string;
+const SERVICE_DOMAIN = process.env.SERVICE_DOMAIN as string;
 
 export const apiConfig = {
-  SENDGRID_API_KEY,
+  EMAIL_SERVICE,
+  EMAIL_SERVICE_SECRET,
+  EMAIL_USERNAME,
+  SERVICE_DOMAIN,
 };

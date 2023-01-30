@@ -3,12 +3,12 @@ import { ApiResource, LambdaDefinition } from "../infra/helpers/types";
 
 export const ApiResources: ApiResource[] = [
   {
-    resource: "emailHelper",
+    resource: "email",
     methods: [
       {
         path: "",
         method: HttpMethod.POST,
-        lambdaName: "migrateSchema",
+        lambdaName: "core",
       },
     ],
   },
