@@ -13,7 +13,7 @@ const transportMap = {
       service: apiConfig.EMAIL_SERVICE,
       auth: {
         user: apiConfig.EMAIL_USERNAME,
-        pass: apiConfig.EMAIL_PASSWORD,
+        pass: apiConfig.EMAIL_SERVICE_SECRET,
       },
     } as TransportOptions);
   },
@@ -21,7 +21,7 @@ const transportMap = {
     return createTransport(
       MailTransport({
         auth: {
-          api_key: apiConfig.EMAIL_PASSWORD,
+          api_key: apiConfig.EMAIL_SERVICE_SECRET,
           domain: apiConfig.SERVICE_DOMAIN,
         },
       })
