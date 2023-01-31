@@ -5,8 +5,8 @@ in order to pick env variables from your local .env file
 -----------------------------------------------------------------
 */
 
-import * as dotenv from "dotenv";
-dotenv.config({ path: __dirname + "/.env" });
+// import * as dotenv from "dotenv";
+// dotenv.config({ path: __dirname + "/.env" });
 
 import { APIGatewayEvent, Context, Handler } from "aws-lambda";
 import { sendEmail } from "./util/mail";
@@ -35,24 +35,24 @@ Uncomment the below handler call in order to call the function locally provide t
 -----------------------------------------------------------------------------------------------------
 */
 
-const event: Partial<APIGatewayEvent> = {
-  resource: "email",
-  httpMethod: "POST",
-  // queryStringParameters: {},
-  body: JSON.stringify({
-    templateId: "test",
-    templateData: {
-      recipient: "faiq.ahsan@devigital.com",
-      appName: "test",
-      resetLink: "www.google.com",
-    },
-    emailData: {
-      subject: "Test",
-      recipient: "faiq.ahsan@devigital.com",
-    },
-  }),
-};
+// const event: Partial<APIGatewayEvent> = {
+//   resource: "email",
+//   httpMethod: "POST",
+//   // queryStringParameters: {},
+//   body: JSON.stringify({
+//     templateId: "test",
+//     templateData: {
+//       recipient: "faiq.ahsan@devigital.com",
+//       appName: "test",
+//       resetLink: "www.google.com",
+//     },
+//     emailData: {
+//       subject: "Test",
+//       recipient: "faiq.ahsan@devigital.com",
+//     },
+//   }),
+// };
 
-handler(event, {} as Context, () => {
-  console.log("Test");
-});
+// handler(event, {} as Context, () => {
+//   console.log("Test");
+// });
