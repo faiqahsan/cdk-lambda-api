@@ -42,13 +42,13 @@ const event: Partial<APIGatewayEvent> = {
   body: JSON.stringify({
     templateId: "test",
     templateData: {
-      recipient: "faiq.ahsan@climateclub.com",
+      recipient: "faiq.ahsan@devigital.com",
       appName: "test",
       resetLink: "www.google.com",
     },
     emailData: {
       subject: "Test",
-      recipient: "faiq.ahsan@climateclub.com",
+      recipient: "faiq.ahsan@devigital.com",
     },
   }),
 };

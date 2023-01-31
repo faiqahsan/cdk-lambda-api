@@ -9,13 +9,13 @@ mailer.fromTitle = apiConfig.EMAIL_FROM_TITLE;
 mailer.init();
 
 export const sendSimpleEmail = async (
-  sender: string,
+  recipient: string,
   subject: string,
   body: string
 ) => {
   try {
-    await mailer.send(sender, subject, body);
-    return `Email sent successfully to: ${sender}`;
+    const response = await mailer.send(recipient, subject, body);
+    return `Email sent successfully to: ${recipient}, Details: ${response}`;
   } catch (err) {
     return `Error sending email:, ${JSON.stringify(err)}`;
   }
