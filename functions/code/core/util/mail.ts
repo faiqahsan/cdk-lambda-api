@@ -1,24 +1,26 @@
-import { SendMailOptions } from "nodemailer";
 import { renderFile } from "ejs";
-import { transporter } from "./transporter";
 import { formatResponse } from ".";
+import { sendSimpleEmail } from "./mailgun";
 
 export const sendEmail = async (
   templateId: string,
-  templateData: Record<any, any>
+  templateData: Record<any, any>,
+  emailData: Record<any, any>
 ) => {
-  console.log("sending email ========>");
-  const htmlData = await renderFile(
-    __dirname + `/../templates/${templateId}/${templateId}.ejs`,
-    templateData
-  );
-  const mainOptions: SendMailOptions = {
-    from: templateData.sender,
-    to: templateData.recipient,
-    subject: templateData.subject,
-    html: htmlData,
-  };
-  await transporter.sendMail(mainOptions);
-  console.log("Email sent");
-  return formatResponse(200, "Email sent successfully");
+  try {
+    console.log("sending email ========>");
+    const htmlData = await renderFile(
+      __dirname + `/../templates/${templateId}/${templateId}.ejs`,
+      templateData
+    );
+    const response = await sendSimpleEmail(
+      emailData.recipient,
+      emailData.subject,
+      htmlData as string
+    );
+    return formatResponse(200, response);
+  } catch (err) {
+    console.error("Error sending email ========>", err);
+    return formatResponse(422, err);
+  }
 };
