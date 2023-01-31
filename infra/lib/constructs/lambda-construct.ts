@@ -17,6 +17,8 @@ export class LambdaConstruct extends Construct {
       EMAIL_USERNAME: process.env.EMAIL_USERNAME ?? "",
       EMAIL_SERVICE_SECRET: process.env.EMAIL_SERVICE_SECRET ?? "",
       SERVICE_DOMAIN: process.env.SERVICE_DOMAIN ?? "",
+      EMAIL_FROM: process.env.EMAIL_FROM ?? "",
+      EMAIL_FROM_TITLE: process.env.EMAIL_FROM_TITLE ?? "",
     };
     for (const definition of LambdaDefinitions) {
       const functionProps = getLambdaProps(definition, context, {
