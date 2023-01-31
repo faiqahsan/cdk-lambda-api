@@ -7,8 +7,10 @@
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "esbuild": "^0.16.12",
+    "mailgun-js": "^0.22.0",
     "nodemailer": "^6.9.0",
     "nodemailer-mailgun-transport": "^2.1.5",
+    "ts-mailgun": "^0.5.1",
     "ts-node": "^10.9.1"
   },
   "scripts": {
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@types/ejs": "^3.1.1",
+    "@types/mailgun-js": "^0.22.13",
     "@types/node": "^14.14.35",
     "@types/nodemailer": "^6.4.7",
     "@types/nodemailer-mailgun-transport": "^1.4.3",
