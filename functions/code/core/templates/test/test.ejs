@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <style type="text/css">
+      html,
+      body {
+        color: #000;
+        font-size: 13px;
+        font-family: 'Arial', 'Helvetica', 'sans-serif';
+      }
+      p,
+      p.para {
+        margin: 0;
+        padding: 0 0 25px 0;
+      }
+      p.light {
+        color: #94a3b0;
+      }
+      .img {
+        height: 55px;
+        width: 111px;
+      }
+      a.btn,
+      a.btn:visited,
+      a.btn:hover {
+        background-color: rgb(69, 16, 138);
+        color: #fff;
+        width: 180px;
+        height: 40px;
+        line-height: 40px;
+        border: 0;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        text-decoration: none;
+        margin-bottom: 25px;
+      }
+      a.link,
+      a.link:visited,
+      a.link:hover {
+        text-decoration: none;
+        color: #63c1f8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="newsletter">
+      <p class="para">Hello <%= recipient %>!</p>
+      <p class="para">You have requested to reset your password.</p>
+      <p class="light">Please click on Reset Now to change your password.</p>
+
+      <a href="<%= resetLink %>" class="btn"><strong>Reset Now</strong></a>
+
+      <p>
+        <%= appName %> is a top-tier service provider company with decades of
+        experience and a firm grasp on emerging technologies for development.
+      </p>
+
+      <p>
+        If you have any questions, email
+        <a class="link" href="mailto:contact@devigital.com"
+          >contact@devigital.com</a
+        >.
+      </p>
+    </div>
+  </body>
+</html>
