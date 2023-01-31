@@ -3,7 +3,6 @@
 !.env.*sample
 *.d.ts
 node_modules
-temp*
 # CDK asset staging directory
 .cdk.staging
 cdk.out
