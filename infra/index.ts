@@ -5,26 +5,28 @@ import * as getBranch from "git-branch";
 import { devConfig } from "./config/dev.config";
 import { productionConfig } from "./config/production.config";
 import { TestStack } from "./lib/stack";
-import { CDKContext, EnvironmentConfig, Environments } from "./helpers/types";
+import { CDKContext, EnvironmentConfig, Environment } from "./helpers/types";
 import { App } from "aws-cdk-lib";
+import { stagingConfig } from "./config/staging.config";
 
 const app: App = new cdk.App();
 
-function getConfig(environment: Environments): EnvironmentConfig {
+function getConfig(environment: Environment): EnvironmentConfig {
   switch (environment) {
-    case Environments.DEV:
+    case Environment.DEV:
       return devConfig;
-    case Environments.PRODUCTION:
+    case Environment.PROD:
       return productionConfig;
+    case Environment.STAGING:
+      return stagingConfig;
     default:
-    case Environments.SANDBOX:
       return devConfig;
   }
 }
 
 async function getContext(
   app: cdk.App,
-  environment: Environments
+  environment: Environment
 ): Promise<CDKContext> {
   return new Promise(async (resolve, reject) => {
     try {
@@ -39,7 +41,7 @@ async function getContext(
   });
 }
 
-async function createEnv(app: App, environment: Environments) {
+async function createEnv(app: App, environment: Environment) {
   try {
     const context = await getContext(app, environment);
     const stackName = `${context.name}-${context.appName}`;
@@ -62,7 +64,9 @@ async function createEnv(app: App, environment: Environments) {
 }
 
 async function createStacks() {
-  await createEnv(app, Environments.DEV);
+  await createEnv(app, Environment.DEV);
+  await createEnv(app, Environment.STAGING);
+  await createEnv(app, Environment.PROD);
 }
 
 createStacks();

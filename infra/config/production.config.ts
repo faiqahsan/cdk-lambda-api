@@ -5,7 +5,7 @@ export const productionConfig: EnvironmentConfig = {
   apiSubDomainPrefix: "api",
   webappSubDomainPrefix: "app",
   rootDomain: "test-prod.com",
-  branch: "main",
+  branch: "prod",
   vpnCertificateArn: "",
   isProduction: true,
 };

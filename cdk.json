@@ -32,9 +32,7 @@
     "@aws-cdk/aws-iam:standardizedServicePrincipals": true,
     "@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker": true,
     "globals": {
-      "appName": "test",
-      "databaseName": "test",
-      "databaseSchema": "test"
+      "appName": "test"
     }
   }
 }
