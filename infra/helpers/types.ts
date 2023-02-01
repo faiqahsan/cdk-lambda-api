@@ -13,15 +13,8 @@ export type EnvironmentConfig = {
 };
 export interface CDKContext extends EnvironmentConfig {
   appName: string;
-  environment: Environments;
+  environment: Environment;
   branch: string;
-}
-
-export enum Environments {
-  SANDBOX = "sandbox",
-  DEV = "dev",
-  STAGING = "staging",
-  PRODUCTION = "production",
 }
 
 export type LambdaDefinition = {
@@ -52,5 +45,5 @@ export interface APIStackProps extends StackProps {
 export enum Environment {
   DEV = "dev",
   PROD = "prod",
-  STAGE = "stage",
+  STAGING = "staging",
 }

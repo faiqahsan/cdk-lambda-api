@@ -15,7 +15,9 @@ export const sendSimpleEmail = async (
 ) => {
   try {
     const response = await mailer.send(recipient, subject, body);
-    return `Email sent successfully to: ${recipient}, Details: ${response}`;
+    return `Email sent successfully to: ${recipient}, Details: ${JSON.stringify(
+      response
+    )}`;
   } catch (err) {
     return `Error sending email:, ${JSON.stringify(err)}`;
   }
